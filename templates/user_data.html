@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div>
+    <h1>Внести или изменить данные</h1>
+    <form action="" method="POST" novalidate>
+        {{ form.hidden_tag() }}
+        <p>
+            {% if error == 'not_enough' %}
+        <div class="alert alert-danger" role="alert">
+            Введены не все данные для работы
+        </div>
+        {% endif %}
+        <p>Фамилия</p>
+        {{ form.surname }}
+        <p>Имя</p>
+        {{ form.name }}
+        <p>Отчество</p>
+        {{ form.patronymic }}
+        <p>Адрес</p>
+        {{ form.address }}
+        <p>Номер счетчика</p>
+        {{ form.counter_number }}
+        </p>
+        {{ form.submit }}
+    </form>
+</div>
+{% endblock %}

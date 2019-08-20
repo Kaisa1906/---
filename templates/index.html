@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+<table style="margin-top: 3%;">
+    <tr>
+        <td style="background-color: #666666; width: 300px; color: #ffffff; height: 550px; vertical-align: top">
+            <h2 style="text-align: center">Информация о системе</h2>
+            {%if username == 'admin' %}
+            <button onclick="location.href='/news_list'">Добавить/удалить новость</button>
+            {% endif %}
+            {% for item in news %}
+            <h4>{{ item[1] }}</h4>
+            <p>{{ item[2] }}</p>
+            {% endfor %}
+        </td>
+        <td style="vertical-align: top">
+            <h2>Главное</h2>
+            <p>Основное содержание страницы</p>
+        </td>
+    </tr>
+</table>
+{% endblock %}

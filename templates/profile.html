@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+<table style="margin-top: 3%">
+    <tr>
+        <td style="background-color: #666666; width: 300px; color: #ffffff; height: 550px; vertical-align: top">
+            <h6>Личный кабинет:</h6>
+            <h2>{{ username }}</h2>
+            <button onclick="location.href='/logout'"> Выйти</button>
+            <p>Фамилия: {{ data[2] }}</p>
+            <p>Имя: {{ data[3] }}</p>
+            <p>Отчество: {{ data[4] }}</p>
+            <p>Адрес: {{ data[5] }}</p>
+            <p>Номер счетчика: {{ data[6] }}</p>
+            <button onclick="location.href='/user_data'">Изменить данные</button>
+        </td>
+        <td style="vertical-align: top">
+            <h2>Главное</h2>
+            <p>Основное содержание страницы</p>
+        </td>
+    </tr>
+</table>
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% if username == 'admin' %}
+<div>
+    <button onclick="location.href='/add_news'">Добавить новость</button>
+    {% for item in news %}
+    <div class="alert alert-warning" role="alert">
+        <h2>{{ item[1] }}</h2>
+        <p>{{ item[2] }}</p>
+        <a href="/del_news/{{item[0]}}">
+            <button class="btn btn-dark"> Удалить новость</button>
+        </a>
+    </div>
+    {% endfor %}
+</div>
+{% endif %}
+{% endblock %}

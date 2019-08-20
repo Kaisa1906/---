@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block content %}
+<style>
+    .parent {
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    overflow: auto;
+    color: #ffffff;
+}
+</style>
+<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+    <div class="parent">
+        <div>
+            <h1 style="margin-bottom: 20px; text-align: center; color: #000000;">Авторизация</h1>
+            {% if error == 'notexist' %}
+                <div class="alert alert-danger" role="alert">
+                    Неправильное имя пользователя или пароль
+                </div>
+                {% endif %}
+            <div>
+
+                <form action="" method="post" novalidate>
+                {{ form.hidden_tag() }}
+                <p>
+                    <label for="login" style="color: #000000">{{ form.username.label }}</label>
+                    <br>
+                    {{ form.username }}
+                    {% for error in form.username.errors %}
+                    <div class="alert alert-danger" role="alert">
+                        {{ error }}
+                    </div>
+                    {% endfor %}
+                </p>
+                <p>
+                    <label for="password" style="color: #000000">{{ form.password.label }}</label>
+                    <br>
+                    {{ form.password }}
+                    {% for error in form.password.errors %}
+                    <div class="alert alert-danger" role="alert">
+                    {{ error }}
+                    </div>
+                    {% endfor %}
+                </p>
+                <p> {{ form.submit() }} <a href="/registration" style="color: #000000; margin-left: 10px;" class="alert-link">Зарегистрироваться</a></p>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=0.3, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>{{title}}</title>
+</head>
+<body class="bg-inverse" style="background-color: #ffffff">
+<header>
+    <nav class="navbar navbar-light " style="background-color: #013220">
+        <a href="/" class="navbar-brand logo font-weight-bold" style="color: #ffffff; height: 10%"><h2>Name & Logo</h2></a>
+    </nav>
+    <nav class="navbar navbar-light " style="background-color: #666666; height: 3%">
+        <table>
+            <tr><!-- all buttons in main window -->
+                <th><a style="color: #ffffff" href="/system_info">О нас</a></th>
+            </tr>
+        </table>
+        {% if "username" in session %}
+        <a style="color: #ffffff" href="/profile">{{ text }}</a>
+        {% endif %}
+        {% if not "username" in session %}
+        <a style="color: #ffffff" href="/login">{{ text }}</a>
+        {% endif %}
+    </nav>
+</header>
+<!-- Begin page content -->
+<main role="main" class="container">
+    {% block content %}{% endblock %}
+</main>
+<footer>
+    <nav style="position: fixed; left:0; bottom:0; background-color: #013220; color: #ffffff; height:4%; width: 100%">Контакты для связи</nav>
+</footer>
+</body>
+</html>
